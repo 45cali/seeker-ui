@@ -81,3 +81,11 @@ body {
     border-bottom: 0;
   }
 }
+
+.navbar-default {
+  background-color: #9DD4A7;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+

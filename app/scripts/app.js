@@ -27,6 +27,18 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/api', {
+        templateUrl: 'views/api.html',
+        controller: 'ApiCtrl'
+      })
+      .when('/sops', {
+        templateUrl: 'views/sops.html',
+        controller: 'SopsCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
