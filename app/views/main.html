@@ -1,3 +1,16 @@
-<div class="container">
-  container for main/home page
+
+<div class="container" >
+
+  <div class="row">
+    <div class="col-xs-6">
+      <input type="text"  ng-model="hostnameId"  class="form-control" placeholder="Hostname">
+    </div>
+    <div class="col-xs-3">
+      <input type="text" ng-model="alertId" class="form-control" placeholder="Alert">
+    </div>
+    <button type="submit" class="btn btn-go" ng-click="getRequestSeeker(hostnameId,alertId)">Go</button>
+  </div>
+
+
+
 </div>

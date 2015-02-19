@@ -8,14 +8,16 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('seekerUiApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-jwt'
+
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -35,11 +37,10 @@ angular
         templateUrl: 'views/sops.html',
         controller: 'SopsCtrl'
       })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+
+

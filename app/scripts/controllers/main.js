@@ -8,10 +8,18 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl',function ($scope,seeker,$http) {
+
+
+
+    $scope.getRequestSeeker = function (hostnameId,alertId) {
+        console.log(hostnameId,alertId);
+        var gist = seeker.lookup(hostnameId,alertId);
+        alert(gist);
+        console.log(gist);
+
+
+    };
+
+
   });
