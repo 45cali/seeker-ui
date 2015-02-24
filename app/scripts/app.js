@@ -16,7 +16,9 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angular-jwt'
+    'angular-jwt',
+    'ngStorage'
+
 
   ])
   .config(function ($routeProvider) {

@@ -8,12 +8,11 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('seeker', function ($http) {
+  .factory('seeker', function ($http,$resource) {
     // Service logic
     // ...
 
-    var urlBase = 'http://localhost:8000/api/seek/?format=jsonp&callback=JSON_CALLBACK';
-
+    var baseUrl = 'http://localhost:8000/api/seek/?';
     // Public API here
     return {
 
@@ -21,17 +20,13 @@ angular.module('seekerUiApp')
 
         if (angular.isUndefined(alertId) || (alertId === '')) {
 
-          $http.jsonp(urlBase).
-            success(function(data, status, headers, config, response) {
+          return $http.get(baseUrl+'hostname='+hostnameId);
 
-            }).
-            error(function(data, status, headers, config) {
-
-            });
 
         }
         else {
-          return 'hostname: ' + hostnameId + ' - alert: ' + alertId;
+         return $http.get(baseUrl+'hostname=' + hostnameId + '&alert=' + alertId);
+
         }
       }
     };

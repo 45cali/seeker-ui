@@ -8,10 +8,11 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('MyloginCtrl', function ($scope, $http) {
+  .controller('MyloginCtrl', function ($scope, $http,$localStorage) {
 
     $scope.login = function (username,password) {
       console.log('username: '+username+' password: '+password);
+      console.log('validate token');
 
       var req = {
         method : 'POST',
@@ -22,9 +23,14 @@ angular.module('seekerUiApp')
         data: {"username":username,"password":password}
       };
 
-    $http(req).then(function(response){console.log(response.data.token)});
+    $http(req).then(function(response){
+      // console.log(response.data.token)
+       $localStorage.token = response.data.token;
 
+    });
 
+      $('#loginLink').hide();
+      $('#loggedIn').show();
 
 
     }
