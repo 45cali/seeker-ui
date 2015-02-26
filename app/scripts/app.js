@@ -17,7 +17,8 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'angular-jwt',
-    'ngStorage'
+    'ngStorage',
+    'smart-table'
 
 
   ])
@@ -38,6 +39,11 @@ var app = angular
       .when('/sops', {
         templateUrl: 'views/sops.html',
         controller: 'SopsCtrl'
+      })
+      .when('/templates', {
+        templateUrl: 'views/templates.html',
+        controller: 'TemplatesCtrl'
+
       })
       .otherwise({
         redirectTo: '/'

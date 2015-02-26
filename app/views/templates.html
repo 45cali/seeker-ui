@@ -1,0 +1,38 @@
+<div class="container">
+
+<div class="table-responsive">
+
+  <table st-table="displayedCollection" st-safe-src="templateCollection" class="table table-striped">
+     <thead>
+      <tr colspan="5">
+       <th ><input st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
+      </tr>
+      <tr>
+       <th st-sort="name">Name</th>
+       <th>Description</th>
+       <th st-sort="owner">Author</th>
+      </tr>
+
+     </thead>
+     <tbody>
+      <tr ng-repeat="row in displayedCollection">
+        <td>{{ row.name }}</td>
+        <td class="col-xs-3">{{ row.description }}</td>
+        <td>{{ row.owner }}</td>
+      </tr>
+     </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+

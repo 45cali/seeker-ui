@@ -8,10 +8,8 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('SopsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('SopsCtrl', function ($scope,checkJwt) {
+    checkJwt.validate();
+
+
   });

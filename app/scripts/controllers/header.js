@@ -8,9 +8,11 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('HeaderCtrl', function ($scope,$localStorage,jwtHelper) {
+  .controller('HeaderCtrl', function ($scope,$localStorage,jwtHelper,checkJwt) {
     $('#loginLink').show();
     $('#loggedIn').hide();
+    $('#headerSop').hide();
+    $('#headerTemplate').hide();
 
     if (typeof $localStorage.token === 'undefined') {
 
@@ -19,23 +21,36 @@ angular.module('seekerUiApp')
 
     }
     else {
+
       $scope.$storage = $localStorage;
       var thisToken = $scope.$storage.token;
       console.log(thisToken);
-      var tokenInfo = jwtHelper.decodeToken(thisToken);
-      console.log(tokenInfo);
-      $scope.$storage.username = tokenInfo.username;
-      $('#loginLink').hide();
-      $('#loggedIn').show();
+
+      var bool = jwtHelper.isTokenExpired(thisToken);
+      console.log(bool);
+
+      if (bool === false) {
+        var tokenInfo = jwtHelper.decodeToken(thisToken);
+        console.log(tokenInfo);
+
+        $scope.currentUser = tokenInfo.username;
+        $('#loginLink').hide();
+        $('#loggedIn').show();
+        $('#headerSop').show();
+        $('#headerTemplate').show();
+      }
+      else {
+        delete $scope.$storage.token;
+      }
+
+
+
     }
 
     $scope.logout = function () {
       delete $scope.$storage.token;
-      delete $scope.$storage.token;
+      checkJwt.validate();
 
-      console.log('token deleted :(');
-      $('#loginLink').show();
-      $('#loggedIn').hide();
     }
 
 

@@ -31,6 +31,8 @@ angular.module('seekerUiApp')
 
       $('#loginLink').hide();
       $('#loggedIn').show();
+      $('#headerSop').show();
+      $('#headerTemplate').show();
 
 
     }

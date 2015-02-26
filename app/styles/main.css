@@ -99,22 +99,22 @@ body {
 }
 
 .btn-go {
-  color: #fff;
+  color: #777;
   background-color: rgba(55, 212, 91, 0.62);
   border-color: #9CA3A8;
 }
 
 .btn-go:hover {
   background-color: rgba(55, 212, 91, 0.62);
-  border-width: 2px;
+
   color: #fff;
 }
 
 .btn-go:active {
-  color: #fff;
+  color: #777;
   background-color: rgba(55, 212, 91, 0.62);
   border-color: #9CA3A8;
-  border-width: 2px;
+
 
 }
 .form-control:focus {
@@ -153,4 +153,34 @@ body {
 
 .bottom-line {
   border-bottom: 1px solid #ccc;
+}
+
+.hover-green:hover {
+  text-decoration: none;
+  color: #006600;
+}
+
+.clean-anchor {
+
+  color : #777;
+}
+
+.form-control {
+  color : #777;
+}
+
+.modal-login-footer {
+  padding: 15px;
+  text-align: right;
+}
+
+.table-responsive
+{
+  overflow-x: auto;
+
+}
+
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
 }
