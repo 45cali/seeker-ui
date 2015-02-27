@@ -184,3 +184,11 @@ table {
   table-layout: fixed;
   word-wrap: break-word;
 }
+
+tr {
+  color: #777;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}

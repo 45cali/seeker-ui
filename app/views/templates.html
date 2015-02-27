@@ -1,29 +1,36 @@
 <div class="container">
 
-<div class="table-responsive">
 
-  <table st-table="displayedCollection" st-safe-src="templateCollection" class="table table-striped">
-     <thead>
-      <tr colspan="5">
-       <th ><input st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
-      </tr>
+
+  <table st-table="displayedCollection" st-safe-src="templateCollection" class="table">
+
+    <thead>
       <tr>
-       <th st-sort="name">Name</th>
+        <th colspan="3">
+          <input st-search placeholder="global search" class="input-sm form-control" type="search" auto-focus=""/>
+        </th>
+      </tr>
+
+      <tr>
+       <th st-sort="name">Template Name</th>
        <th>Description</th>
        <th st-sort="owner">Author</th>
       </tr>
 
      </thead>
      <tbody>
-      <tr ng-repeat="row in displayedCollection">
-        <td>{{ row.name }}</td>
-        <td class="col-xs-3">{{ row.description }}</td>
-        <td>{{ row.owner }}</td>
+      <tr ng-repeat="row in displayedCollection" ng-click="goToThisTemplate(row.id)">
+        <td class="col-xs-3">{{ row.name }}</td>
+        <td class="col-xs-4">{{ row.description | limitTo: 30 }}{{row.description.length >= 30 ? '...' : ''}}</td>
+        <td class="col-xs-3">{{ row.owner }}</td>
       </tr>
      </tbody>
+    <tfoot>
+
+    </tfoot>
   </table>
 
-</div>
+
 
 
 

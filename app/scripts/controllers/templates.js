@@ -8,7 +8,7 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('TemplatesCtrl', function ($scope,checkJwt,template) {
+  .controller('TemplatesCtrl', function ($scope,checkJwt,template,$location) {
     checkJwt.validate();
 
     template.list().
@@ -24,7 +24,9 @@ angular.module('seekerUiApp')
 
       });
 
+    angular.element('.focusHere').focus();
 
-
-
+    $scope.goToThisTemplate = function (id) {
+      $location.path('/templates/'+id);
+    }
   });

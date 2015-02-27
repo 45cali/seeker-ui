@@ -45,6 +45,10 @@ var app = angular
         controller: 'TemplatesCtrl'
 
       })
+      .when('/templates/:templateId', {
+        templateUrl: 'views/thistemplate.html',
+        controller: 'ThisTemplateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

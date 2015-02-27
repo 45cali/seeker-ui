@@ -12,8 +12,11 @@ angular.module('seekerUiApp')
     var baseUrl = 'http://localhost:8000/api/templates/';
 
     return {
-      list: function(){
+      list: function() {
            return $http.get(baseUrl);
+      },
+      get: function (templateId) {
+           return $http.get(baseUrl+templateId);
       }
     }
 

@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-xs-6">
-      <input type="text"  ng-model="hostnameId"  class="form-control" placeholder="Hostname">
+      <input type="text"  ng-model="hostnameId"  class="form-control" placeholder="Hostname" auto-focus="">
     </div>
     <div class="col-xs-3">
       <input type="text" ng-model="alertId" class="form-control" placeholder="Alert">
@@ -41,7 +41,7 @@
                     Product: {{ s.product | uppercase}}
                   </div>
                   <div class="row">
-                    Contact: <a href=" {{ s.oncall}} " class="clean-anchor hover-green" >{{ s.owner | uppercase}} </a>
+                    Contact: <a href=" {{ s.oncall }} " class="clean-anchor hover-green" >{{ s.owner | uppercase}} </a>
                   </div>
                   <div class="row">
                     Runbook
