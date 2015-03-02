@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="one-template">
+  <div class="one-template ">
 
     <div class="row">
-      <div class="col-xs-3">
+      <div class="col-xs-3 col-xs-offset-2">
         Template Name:
       </div>
       <div class="col-xs-2">
@@ -13,15 +13,19 @@
       </div>
     </div>
     <div class="row ">
-      <div class="col-xs-3">
+      <div class="col-xs-3 col-xs-offset-2">
         Description:
       </div>
+
     </div>
     <div class="row">
 
-      <div class=" col-xs-5 word-wrap">
+      <div class=" col-xs-5 col-xs-offset-2 word-wrap">
         {{ thisTemplate.description }}
+
+
       </div>
+
       <div class="col-xs-2">
          <div ng-repeat="alert in thisTemplate.alert_set track by $index">
            {{ alert }}
@@ -29,6 +33,23 @@
       </div>
     </div>
 
+    <div ng-show="isOwner" class="row">
+
+      <div  class="col-xs-6 col-xs-offset-2">
+        <button type="button" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-danger pull-right">Delete</button>
+
+      </div>
+
+
+
+    </div>
+
+    <div ng-hide="isOwner" class="row">
+      <div class="col-xs-5 col-xs-offset-2">
+        Owner: {{ thisTemplate.owner }}
+      </div>
+    </div>
 
 
 

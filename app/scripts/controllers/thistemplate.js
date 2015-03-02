@@ -8,8 +8,12 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('ThisTemplateCtrl', function ($scope,$routeParams,template,checkJwt) {
+  .controller('ThisTemplateCtrl', function ($scope,$routeParams,template,checkJwt,checkPerm) {
     checkJwt.validate();
+
+
+
+
 
     var thisId = $routeParams.templateId;
     template.get(thisId)
@@ -20,9 +24,15 @@ angular.module('seekerUiApp')
 
       })
       .then(function(response){
-          console.log(response);
+          console.log(response.data.owner);
           $scope.thisTemplate = response.data;
+
+         console.log('isOwner: '+checkPerm.isOwner(response.data.owner));
+        $scope.isOwner = checkPerm.isOwner(response.data.owner);
+
       })
+
+
 
 
 
