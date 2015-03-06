@@ -8,7 +8,7 @@
  * Service in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .service('checkPerm', function ($localStorage,jwtHelper) {
+  .service('checkPerm', function ($localStorage,jwtHelper,$location) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
 
@@ -17,7 +17,7 @@ angular.module('seekerUiApp')
 
 
 
-    this.isOwner = function(owner){
+    this.isOwner = function (owner) {
 
       if (typeof thisToken != 'undefined') {
 
@@ -29,18 +29,40 @@ angular.module('seekerUiApp')
       }
 
 
-
-
-
     }
 
-    this.isGroup = function(group){
+    this.isGroup = function (group) {
 
       if (typeof thisToken != 'undefined') {
 
       }
 
+    }
+
+    this.isOwnerOrRedirect = function (owner) {
+      if (typeof thisToken != 'undefined') {
+
+        if (owner === tokenInfo.username) {
+          console.log('service: checkPerm, status: current user owns template, action:load page');
+        }
+
+        else {
+          console.log('service: checkPerm, status: current user does not own template, action:redirect to /');
+          $location.path('/templates');
+        }
+      }
+
 
 
     }
+
+
+
+
+
+
+
+
+
+
   });
