@@ -20,9 +20,18 @@ angular.module('seekerUiApp')
 
       })
       .then(function(response){
-        console.log('editTemplate   '+response.data.owner);
+        //console.log('editTemplate  owner:  '+response.data.owner);
+        // check permissions
         checkPerm.isOwnerOrRedirect(response.data.owner);
+
+        // load template data
         $scope.editThisTemplate = response.data;
+
+        // assign list to $scope.templateList
+        //console.log('editThisTemplate:  ' +$scope.editThisTemplate['alert_set']);
+        $scope.templateList = $scope.editThisTemplate['alert_set'];
+       // console.log('this should be a list: '+$scope.templateList);
+
       })
       .then(function () {
           alerts.get()
@@ -36,29 +45,49 @@ angular.module('seekerUiApp')
             //    console.log('alert obj list:' + response.data)
             //    console.log('run listify');
             //    console.log('alertList: ' + alerts.listify(response.data));
-
+               // make data into a list
                $scope.masterList = alerts.listify(response.data);
 
             })
       });
 
-    $scope.templateList = [];
 
-    $scope.moveToTemplateList = function (thisAlert) {
-       console.log('moveToTemplateList(): ' + thisAlert);
+    // load templateList
 
-       $scope.templateList.push(thisAlert);
+
+
+
+    $scope.templateList = ["1","2"];
+
+
+
+    $scope.sortableOptions = {
+      update: function(e, ui) {
+      },
+      receive: function(e, ui) {
+
+      },
+
+      connectWith: ".alert-container"
+
     };
 
-    $scope.moveToMasterList = function (thisAlert) {
-      console.log('moveToMasterList(): ' + thisAlert);
-       $scope.masterList.push(thisAlert);
-
-    };
-
+    $scope.addAlertToTemplateList = function (a) {
+         if ($scope.templateList.indexOf(a) > -1) {
+           console.log('already in templateList');
+           $scope.thisAlert = '';
 
 
+         }
+         else {
 
+           $scope.templateList.push(a);
+           $scope.thisAlert = '';
+
+
+         }
+
+    }
 
 
 

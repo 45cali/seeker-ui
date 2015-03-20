@@ -1,33 +1,71 @@
-<p>This is the editthistemplate view.</p>
+
 
 
 <div class="container">
+   <!-- TOP ROW-->
    <div class="row">
      <div class="col-xs-3">
-       Master List
+       <h4>Template Name:</h4>
      </div>
      <div class="col-xs-3">
-       Template List
+       <h4>{{ editThisTemplate.name }}</h4>
+     </div>
+     <div class="col-xs-3">
+
      </div>
    </div>
+
   <div class="row">
-    <div class="col-xs-3">
-      <ul>
-        <li ng-repeat="masterAlert in masterList track by $index" ng-dblclick="moveToTemplateList(masterAlert)">
-          {{ masterAlert }}
-        </li>
-      </ul>
 
+    <div class="col-xs-5">
+      <h4>Description:</h4>
     </div>
-    <div class="col-xs-3">
-      <ul>
-        <li ng-repeat="templateAlert in templateList track by $index" ng-dblclick="moveToMasterList(templateAlert)">
-          {{ templateAlert }}
-        </li>
-      </ul>
 
+    <div class="col-xs-3">
+      <input type="text" class="form-control " placeholder="Add your own alert..." ng-model="thisAlert" onenter="addAlertToTemplateList(thisAlert)">
+    </div>
+    <div class="col-xs-1">
+      <button type="submit" class="btn btn-go" ng-click="addAlertToTemplateList(thisAlert)">Go</button>
     </div>
   </div>
+
+  <div class="row">
+
+       <div class="col-xs-5">
+
+          <div>
+
+            <textarea rows="10" cols="25" class="form-control"> {{ editThisTemplate.description }} </textarea>
+
+
+          </div>
+
+
+       </div>
+
+       <div class="col-xs-3">
+
+           <div ui-sortable="sortableOptions" ng-model="templateList" class="alert-container border-green">
+
+             <div ng-repeat="item in templateList track by $index" class="alert">{{ item }}</div>
+
+
+            </div>
+       </div>
+
+       <div class="col-xs-3">
+
+         <div ui-sortable="sortableOptions" ng-model="masterList" class="alert-container border-green">
+
+             <div ng-repeat="item in masterList track by $index" class="alert">{{ item }}</div>
+
+
+         </div>
+       </div>
+  </div>
+
+
+
 
 </div>
 

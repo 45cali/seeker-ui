@@ -18,7 +18,8 @@ var app = angular
     'ngTouch',
     'angular-jwt',
     'ngStorage',
-    'smart-table'
+    'smart-table',
+    'ui.sortable'
 
 
   ])
