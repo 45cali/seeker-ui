@@ -207,9 +207,11 @@ tr {
   margin: 10px 10px 0 0;
   padding: 5px;
   min-width:150px;
-  min-height:50px;
+  min-height:450px;
   border-radius: 3px;
-  background-color: #8FDB84;
+  background-color: white;
+  overflow: auto;
+  max-height: 450px;
 }
 
 .alert {
@@ -218,10 +220,10 @@ tr {
   margin: 5px 0;
   border: 2px solid #b9b8b3;
   border-radius: 3px;
-  background-color: white;
+  background-color: #b9b8b3;
 
   font-size: 1.1em;
-  font-weight: bold;
+
   text-align: center;
   cursor: move;
 }
@@ -230,5 +232,18 @@ tr {
   border: 2px solid #8FDB84;
 }
 
+textarea {
+  resize: none;
+}
 
+.pad-header {
+  margin-top: 10px;
+}
 
+.no-lpad {
+  padding-left: 0px;
+}
+
+h4 {
+  color: #777
+}
