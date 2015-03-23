@@ -8,7 +8,7 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('EditThisTemplateCtrl', function ($scope,checkJwt,checkPerm,template,$routeParams,alerts) {
+  .controller('EditThisTemplateCtrl', function ($scope,checkJwt,checkPerm,template,$routeParams,alerts,$localStorage) {
 
     // validate user
     checkJwt.validate();
@@ -116,32 +116,37 @@ angular.module('seekerUiApp')
       */
 
       // POST using template.post
-      var url = $scope.editThisTemplate.url;
-      console.log('url: '+url);
+      var templateUrl = $scope.editThisTemplate.url;
+      console.log('url: '+templateUrl);
 
-      var name = $scope.templateName;
+      var templateName = $scope.templateName;
 
       // check if name is undefined
-      if (typeof name === 'undefined') {
+      if (typeof templateName === 'undefined') {
           // set name to original name
-          name = $scope.editThisTemplate.name;
+          templateName = $scope.editThisTemplate.name;
       }
       // check lenth of name > 0
-      else if (name.length < 1) {
+      else if (templateName.length < 1) {
           // set name to original name
-          name = $scope.editThisTemplate.name
+          templateName = $scope.editThisTemplate.name
       }
       else {
           // use the new name
-          name = name;
+          templateName = templateName;
       }
       console.log('name: '+name);
 
-      var description = $scope.thisTextArea;
-      console.log('descriptiopn: '+description);
+      var templateDescription = $scope.thisTextArea;
+      console.log('descriptiopn: '+templateDescription);
 
-      var alert_set = $scope.templateList;
-      console.log('alert_set: '+typeof alert_set);
+      var templateAlertSet = $scope.templateList;
+      console.log('alert_set: '+ typeof templateAlertSet+' val:'+templateAlertSet);
+
+      console.log('token :'+$localStorage.token);
+
+      template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token);
+
     }
 
 
