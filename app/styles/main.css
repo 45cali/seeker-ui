@@ -225,7 +225,12 @@ tr {
   font-size: 1.1em;
 
   text-align: center;
-  cursor: move;
+  /*cursor: move;*/
+}
+
+.alert:hover {
+  border: 2px solid #a3a29d;
+  background-color: #a3a29d;
 }
 
 .border-green:hover {
@@ -245,5 +250,20 @@ textarea {
 }
 
 h4 {
-  color: #777
+  color: #777;
+}
+
+.gray-font {
+  color: #777;
+}
+
+.bold-text:hover {
+  font-weight: bold;
+}
+
+.row-gray {
+  border: 2px solid #a1a1a1;
+  padding: 10px 40px;
+  background: #bababa;
+  border-radius: 5px;
 }

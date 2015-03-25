@@ -1,13 +1,20 @@
 <div class="container">
 
+  <div class="row ">
+    <div class="col-xs-2 col-xs-offset-9 no-lpad">
 
+      <button class="btn btn-go pull-right">Create Template</button>
+    </div>
+
+
+  </div>
 
   <table st-table="displayedCollection" st-safe-src="templateCollection" class="table">
 
     <thead>
       <tr>
         <th colspan="3">
-          <input st-search placeholder="global search" class="input-sm form-control" type="search" auto-focus=""/>
+          <input st-search placeholder="Search by template name, description or author..." class="input-sm form-control" type="search" auto-focus=""/>
         </th>
       </tr>
 
@@ -15,14 +22,16 @@
        <th st-sort="name">Template Name</th>
        <th>Description</th>
        <th st-sort="owner">Author</th>
+       <th>View Details</th>
       </tr>
 
      </thead>
      <tbody>
-      <tr ng-repeat="row in displayedCollection" ng-click="goToThisTemplate(row.id)">
+      <tr ng-repeat="row in displayedCollection" ng-click="goToThisTemplate(row.id)" class="bold-text">
         <td class="col-xs-3">{{ row.name }}</td>
         <td class="col-xs-4">{{ row.description | limitTo: 30 }}{{row.description.length >= 30 ? '...' : ''}}</td>
         <td class="col-xs-3">{{ row.owner }}</td>
+        <td class="col-xs-2"><button class="btn btn-go" ng-click="goToThisTemplate(row.id)">view</button></td>
       </tr>
      </tbody>
     <tfoot>

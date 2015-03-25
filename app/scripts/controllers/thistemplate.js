@@ -16,6 +16,7 @@ angular.module('seekerUiApp')
 
 
     var thisId = $routeParams.templateId;
+
     template.get(thisId)
       .success(function(response){
 
@@ -24,21 +25,26 @@ angular.module('seekerUiApp')
 
       })
       .then(function(response){
-          console.log(response.data.owner);
-          $scope.thisTemplate = response.data;
 
-         console.log('isOwner: '+checkPerm.isOwner(response.data.owner));
+        console.log(response.data.owner);
+
+        $scope.thisTemplate = response.data;
+
+        console.log('isOwner: '+checkPerm.isOwner(response.data.owner));
+
         $scope.isOwner = checkPerm.isOwner(response.data.owner);
-        $scope.editTemplate = function (templateId) {
-          $location.url('/templates/edit/'+templateId  );
-        }
 
+        });
 
+    $scope.editTemplate = function (templateId) {
 
+      $location.url('/templates/edit/'+templateId  );
+    };
 
-      })
+    $scope.goBack = function () {
 
-
+      $location.url('/templates/' );
+    };
 
 
 

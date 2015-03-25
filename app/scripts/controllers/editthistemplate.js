@@ -8,11 +8,13 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('EditThisTemplateCtrl', function ($scope,checkJwt,checkPerm,template,$routeParams,alerts,$localStorage) {
+  .controller('EditThisTemplateCtrl', function ($scope,checkJwt,checkPerm,template,
+                                                $routeParams,alerts,$localStorage,$location) {
 
     // validate user
     checkJwt.validate();
 
+    $scope.showUpdate = false;
     // get id passed in the url
     var thisId = $routeParams.templateId;
 
@@ -52,12 +54,14 @@ angular.module('seekerUiApp')
             })
             .then(function (response) {
 
-               // use 'listify method from the alerts service to bulid a list'
-               $scope.masterList = alerts.listify(response.data);
+               // use 'listify method from the alerts service to build a list'
+              $scope.masterList = alerts.listify(response.data);
+            //  $scope.filterMasterList = $scope.masterList;
 
             })
       });
 
+    /*
     // config for the ui-sortable directive
     $scope.sortableOptions = {
 
@@ -70,7 +74,7 @@ angular.module('seekerUiApp')
       // connect masterList and templateList
       connectWith: ".alert-container"
     };
-
+    */
     // function to append additional values to templateList
     $scope.addAlertToTemplateList = function (a) {
 
@@ -104,6 +108,14 @@ angular.module('seekerUiApp')
 
     };
 
+    $scope.removeFromTemplateList = function (key,item) {
+      console.log($scope.templateList[key]);
+
+      $scope.templateList.splice($scope.templateList.indexOf(item), 1);
+
+      console.log($scope.templateList);
+    };
+
     // update template
     $scope.updateTemplate = function (textAreaData) {
 
@@ -126,7 +138,7 @@ angular.module('seekerUiApp')
           // set name to original name
           templateName = $scope.editThisTemplate.name;
       }
-      // check lenth of name > 0
+      // check length of name > 0
       else if (templateName.length < 1) {
           // set name to original name
           templateName = $scope.editThisTemplate.name
@@ -145,10 +157,37 @@ angular.module('seekerUiApp')
 
       console.log('token :'+$localStorage.token);
 
-      template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token);
+      var tryUpdate = template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token)
+        .success(function () {
+          $scope.updateInfo = "The update was a success";
+          $scope.updateClass = 'alert alert-success';
+        })
+        .error(function () {
+          $scope.updateInfo = "There was an error and this information was not updated. If this issue continues, please contact the admin for this tool.";
+          $scope.updateClass = 'alert alert-success';
+        })
+        .then(function () {
+          $scope.showUpdate = true;
+        });
 
-    }
 
 
+    };
+
+    $scope.goBack = function () {
+
+      $location.url('/templates/'+thisId);
+
+    };
+
+    $scope.toggleList = function (key,list) {
+
+      if (list === 'template') {
+        console.log('add to masterList');
+        console.log()
+      }
+
+
+    };
 
   });
