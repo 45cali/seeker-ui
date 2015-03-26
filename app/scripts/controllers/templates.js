@@ -29,4 +29,8 @@ angular.module('seekerUiApp')
     $scope.goToThisTemplate = function (id) {
       $location.path('/templates/'+id);
     }
+
+    $scope.goToCreateTemplate = function () {
+      $location.path('create/templates/');
+    };
   });

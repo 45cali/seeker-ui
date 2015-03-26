@@ -35,7 +35,30 @@ angular.module('seekerUiApp')
                }
 
            });
+      },
+      post: function (templateName, templateDescription, templateAlertSet, currentUserToken) {
+            return $http({
+
+              method: 'POST',
+              url: baseUrl,
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'JWT '+currentUserToken
+              },
+              data: {
+                name: templateName,
+                description: templateDescription,
+                alert_set: templateAlertSet,
+                owner: "me"
+              }
+
+            });
       }
+
+
+
+
+
     }
 
 
