@@ -174,6 +174,25 @@ angular.module('seekerUiApp')
 
     };
 
+    // Delete this template
+    $scope.deleteTemplate = function () {
+      var templateUrl = $scope.editThisTemplate.url;
+
+      var deleteTemplate = template.delete(templateUrl, $localStorage.token)
+        .success( function (data, status) {
+          console.log(data, status);
+          console.log('success, redirect to /templates');
+          $location.url('/templates');
+        })
+        .error( function (data, status) {
+          console.error(data, status);
+        })
+        .then( function (data, status) {
+
+        })
+    };
+
+
     $scope.goBack = function () {
 
       $location.url('/templates/'+thisId);

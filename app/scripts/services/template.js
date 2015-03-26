@@ -53,8 +53,18 @@ angular.module('seekerUiApp')
               }
 
             });
-      }
+      },
+      delete: function (templateUrl, currentUserToken) {
+            return $http({
 
+              method: 'DELETE',
+              url: templateUrl,
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'JWT '+currentUserToken
+              }
+            });
+      }
 
 
 

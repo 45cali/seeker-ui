@@ -12,6 +12,12 @@ angular.module('seekerUiApp')
     checkJwt.validate();
 
     $scope.templateList = [];
+    $scope.showCreate = false;
+    $scope.moreResponseDetail = false;
+    $scope.toggleShow = function () {
+      $scope.moreResponseDetail = !$scope.moreResponseDetail;
+      console.log('mrd: '+$scope.moreResponseDetail);
+    };
 
     alerts.get()
       .success(function () {
@@ -99,8 +105,8 @@ angular.module('seekerUiApp')
 */
              $scope.createResponse = {
 
-                    'message': 'Template created successfully',
-                    'class'  : 'alert alert-success',
+                    'message': 'Template "'+templateName+'" created',
+                    'class'  : 'alert-success',
                     'status'  : status,
                     'data'   : data
              }
@@ -115,11 +121,11 @@ angular.module('seekerUiApp')
 */
           $scope.createResponse = {
 
-            'message': 'There was an error creating template',
-            'class'  : 'alert alert-danger',
+            'message': 'There was an error creating this template',
+            'class'  : 'alert-danger',
             'status'  : status,
             'data'   : data
-          }
+          };
 
           $scope.showCreate = true;
 
