@@ -41,6 +41,10 @@ var app = angular
         templateUrl: 'views/sops.html',
         controller: 'SopsCtrl'
       })
+      .when('/sops/:sopId', {
+        templateUrl: 'views/thissop.html',
+        controller: 'ThisSopCtrl'
+      })
       .when('/templates', {
         templateUrl: 'views/templates.html',
         controller: 'TemplatesCtrl'

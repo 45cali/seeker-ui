@@ -29,7 +29,7 @@ angular.module('seekerUiApp')
       }
 
 
-    }
+    };
 
     this.isGroup = function (group) {
 
@@ -37,7 +37,7 @@ angular.module('seekerUiApp')
 
       }
 
-    }
+    };
 
     this.isOwnerOrRedirect = function (owner) {
       if (typeof thisToken != 'undefined') {
@@ -47,17 +47,19 @@ angular.module('seekerUiApp')
         }
 
         else {
-          console.log('service: checkPerm, status: current user does not own template, action:redirect to /');
+          console.log('service: checkPerm, status: current user does not own template, action:redirect to /templates');
           $location.path('/templates');
         }
       }
 
 
 
+    };
+
+
+    this.isGroupOrRedirect = function (group) {
+
     }
-
-
-
 
 
 
