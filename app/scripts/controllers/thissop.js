@@ -8,7 +8,7 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('ThisSopCtrl', function ($scope, $location, sop, checkJwt, $routeParams) {
+  .controller('ThisSopCtrl', function ($scope, $location, sop, checkJwt, $routeParams, checkPerm) {
 
     checkJwt.validate();
 
@@ -16,8 +16,14 @@ angular.module('seekerUiApp')
 
     var getInstance = sop.get(thisId)
       .success( function (data, status) {
+
            $scope.thisSop = data;
-           console.log($scope.thisSop);
+           checkPerm.isGroup(data.owner)
+             .then( function (bool) {
+                     console.log(bool);
+                     $scope.isGroup = bool;
+             });
+
       })
       .error( function (data, status) {
 
