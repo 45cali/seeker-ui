@@ -12,26 +12,65 @@
 
   <div class="row ">
 
-    <div class="col-xs-6">
-      <button class="btn btn-go ">Load Alert Template</button>
+    <div class="col-xs-4 col-xs-offset-2">
+
+      <div class="input-group">
+
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle background-gray" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu">
+            <li  class="background-gray-hover" ng-repeat="template in templateList" ng-click="selectTemplate(template)">{{ template.name }}</li>
+
+          </ul>
+
+        </div>
+
+        <input type="text" class="form-control" placeholder="load an alert template" ng-model="sopTemplate">
+
+
+      </div>
+
     </div>
 
+
+
+
+
     <div class="col-xs-3">
-      <input class="form-control" placeholder="add alert" ng-model="thisAlert">
+
+      <div class="input-group">
+        <input class="form-control" placeholder="add alert" ng-model="thisAlert">
+        <span class="input-group-btn">
+            <button class="btn btn-go" type="button" ng-click="addToAlertList(thisAlert)">+</button>
+        </span>
+      </div>
+
+
+
     </div>
-    <div class="col-xs-1">
-      <button class="btn btn-go" ng-click="addToAlertList(thisAlert)">Add</button>
-    </div>
+
   </div>
 
   <div class="row">
 
-    <div class="col-xs-3 col-xs-offset-6">
-      <h4>Alert List</h4>
+
+
+    <div class="col-xs-3 col-xs-offset-6 text-center">
+
+
+            <h4>
+              <span class="glyphicon glyphicon-repeat pull-left hover-green icon-flipped" aria-hidden="true" ng-click="previousAlertList()"></span>
+              Alert List
+            </h4>
+
     </div>
-    <div class="col-xs-3">
+
+    <div class="col-xs-3 text-center">
       <h4>Master List</h4>
     </div>
+
+
+
 
   </div>
 
@@ -205,7 +244,13 @@
 
     </div>
 
-    <div ng-show="true" class="col-xs-2 col-xs-offset-8 ">
+    <div class="col-xs-2 ">
+
+      <button type="submit" class="btn btn-danger " ng-click="deleteTemplate()">Delete</button>
+
+    </div>
+
+    <div ng-show="true" class="col-xs-2 col-xs-offset-6 ">
 
       <button class="btn btn-go pull-right" ng-click="updateSop(thisSop.id)">Update</button>
 
