@@ -2,31 +2,23 @@
 
 /**
  * @ngdoc service
- * @name seekerUiApp.sop
+ * @name seekerUiApp.products
  * @description
- * # sop
+ * # products
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('sop', function ($http) {
+  .factory('products', function ($http) {
     // Service logic
-    // ...
 
-    var baseUrl = 'http://localhost:8000/api/lookup/';
+    var baseUrl = 'http://localhost:8000/api/products/';
 
     return {
 
       list: function () {
         return $http.get(baseUrl);
-      },
-
-      get: function (sopId) {
-        return $http.get(baseUrl+sopId);
       }
 
-
-
-    }
-
+     }
 
   });

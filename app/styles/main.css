@@ -272,3 +272,12 @@ h4 {
   overflow: auto;
   max-height: 250px;
 }
+
+.background-gray-hover:hover {
+  background-color: #cecece;
+}
+
+.background-gray {
+  background-color: #bababa;
+  border-color: #bababa;
+}

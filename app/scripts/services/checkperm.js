@@ -37,26 +37,25 @@ angular.module('seekerUiApp')
 
         var deferred = $q.defer();
 
-
         groupNames.get()
           .then( function (list) {
            //console.log(list);
+
           // check for match
           var boolValue = false;
           if (list.indexOf(group) >= 0) {
               boolValue = true;
           }
-
+          // resolve
           deferred.resolve(boolValue);
 
         });
-
+      // return promise
       return deferred.promise;
       }
       else {
         return false;
       }
-
 
     };
 
@@ -78,8 +77,14 @@ angular.module('seekerUiApp')
     };
 
 
-    this.isGroupOrRedirect = function (group) {
+    this.isGroupOrRedirect = function (group, list) {
 
+      if (list.indexOf(group) >= 0) {
+        console.log('passed auth');
+      }
+      else {
+        $location.path('/sops');
+      }
     }
 
 
