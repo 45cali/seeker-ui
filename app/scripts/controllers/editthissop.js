@@ -8,7 +8,17 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('EditThisSopCtrl', function ($scope, alerts, groupNames, sop, products, checkJwt, checkPerm, $routeParams, $location, template) {
+  .controller('EditThisSopCtrl', function ($scope,
+                                           alerts,
+                                           groupNames,
+                                           sop,
+                                           products,
+                                           checkJwt,
+                                           checkPerm,
+                                           $routeParams,
+                                           $location,
+                                           template,
+                                           jsonData) {
 
     // verify valid token
     checkJwt.validate();
@@ -148,6 +158,16 @@ angular.module('seekerUiApp')
 
       $scope.sopAlertSet = previousAlertSet
 
+
+    };
+
+
+    // load information data
+    $scope.loadHelpInfo = function () {
+
+      jsonData.get('editsopinfo.json').then(function (data) {
+         $scope.sopEditHelpInfo = data.data;
+      });
 
     };
 
