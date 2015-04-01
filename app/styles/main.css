@@ -105,6 +105,14 @@ body {
   border-width: 2px;
 }
 
+.btn-go-inline {
+  color: #777;
+  background-color: rgba(55, 212, 91, 0.62);
+  border-color: #B9B8B3;
+  border-width: 2px;
+
+}
+
 .btn-go:hover {
   background-color: rgba(55, 212, 91, 0.62);
 
@@ -174,9 +182,7 @@ body {
   color : #777;
 }
 
-.form-control {
-  color : #777;
-}
+
 
 .modal-login-footer {
   padding: 15px;
@@ -280,7 +286,14 @@ h4 {
 .background-gray {
   background-color: #bababa;
   border-color: #bababa;
+
 }
+
+.background-gray:hover {
+  background-color: #bababa;
+  border-color: #bababa;
+}
+
 
 
 .pad-left {
@@ -293,4 +306,8 @@ h4 {
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -ms-transform: scaleX(-1);
+}
+
+.input-inline {
+  border-width: 1px;
 }
