@@ -3,10 +3,10 @@
 
   <div class="row">
     <div class="col-xs-6">
-      <input type="text"  ng-model="hostnameId"  class="form-control" placeholder="Hostname" auto-focus="">
+      <input type="text"  ng-model="hostnameId"  class="form-control" placeholder="Hostname" auto-focus="" onenter="getRequestSeeker(hostnameId,alertId)">
     </div>
     <div class="col-xs-3">
-      <input type="text" ng-model="alertId" class="form-control" placeholder="Alert">
+      <input type="text" ng-model="alertId" class="form-control" placeholder="Alert" onenter="getRequestSeeker(hostnameId,alertId)">
     </div>
     <div class="col-xs-1">
     <button type="submit" class="btn btn-go" ng-click="getRequestSeeker(hostnameId,alertId)">Go</button>

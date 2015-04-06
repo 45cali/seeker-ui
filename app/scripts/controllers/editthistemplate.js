@@ -127,7 +127,7 @@ angular.module('seekerUiApp')
       * alert_set
       */
 
-      // POST using template.post
+      // PUT using template.put
       var templateUrl = $scope.editThisTemplate.url;
       console.log('url: '+templateUrl);
 
@@ -157,7 +157,7 @@ angular.module('seekerUiApp')
 
       console.log('token :'+$localStorage.token);
 
-      var tryUpdate = template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token)
+      template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token)
         .success(function () {
           $scope.updateInfo = "The update was a success";
           $scope.updateClass = 'alert alert-success';

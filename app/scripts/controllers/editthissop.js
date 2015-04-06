@@ -18,7 +18,8 @@ angular.module('seekerUiApp')
                                            $routeParams,
                                            $location,
                                            template,
-                                           jsonData) {
+                                           jsonData,
+                                           $localStorage) {
 
     // verify valid token
     checkJwt.validate();
@@ -52,6 +53,7 @@ angular.module('seekerUiApp')
         previousAlertSet = data.alert_set;
         // backup list
         $scope.sopId = thisId;
+        $scope.sopUrl = data.url;
 
 
       })
@@ -116,11 +118,11 @@ angular.module('seekerUiApp')
     };
 
     $scope.removeFromAlertList = function (key,item) {
-      console.log($scope.sopAlertSet[key]);
+      //console.log($scope.sopAlertSet[key]);
 
       $scope.sopAlertSet.splice($scope.sopAlertSet.indexOf(item), 1);
 
-      console.log($scope.sopAlertSet);
+      //console.log($scope.sopAlertSet);
     };
 
     $scope.goBack = function () {
@@ -156,10 +158,52 @@ angular.module('seekerUiApp')
     // go back to previous alert list
     $scope.previousAlertList = function () {
 
-      $scope.sopAlertSet = previousAlertSet
+      $scope.sopAlertSet = previousAlertSet;
 
 
     };
+
+    $scope.deleteSop = function() {
+
+      sop.delete($scope.sopUrl, $localStorage.token)
+        .success( function () {
+          $location.url('/sops/');
+        })
+        .error( function (data) {
+          console.error(data)
+        })
+        .then();
+    };
+
+    $scope.updateSop = function () {
+
+      var sopUrl = $scope.sopUrl;
+
+      var currentUserToken = $localStorage.token;
+      var sopPattern = $scope.sopPattern;
+      var sopProduct = $scope.sopProduct;
+      var sopGroup = $scope.sopGroup
+      var sopAlertSet = $scope.sopAlertSet;
+      var sopInfo = $scope.sopEscalationInfo;
+      var sopOncall = $scope.sopOncall;
+      var sopEmail = $scope.sopEmail;
+
+      sop.put(sopUrl,  currentUserToken, sopPattern, sopProduct, sopGroup, sopAlertSet, sopInfo, sopOncall, sopEmail)
+        .success( function (data) {
+
+          console.log('success: '+data);
+        })
+
+
+        .error( function (data) {
+
+          console.error('error: '+data)
+        })
+        .then( function () {
+
+        });
+    };
+
 
 
     // load information data

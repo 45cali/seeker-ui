@@ -311,3 +311,7 @@ h4 {
 .input-inline {
   border-width: 1px;
 }
+
+.border-px-2 {
+  border-width: 2px;
+}
