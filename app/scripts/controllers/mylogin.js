@@ -20,7 +20,7 @@ angular.module('seekerUiApp')
         headers: {
           'Content-Type': 'application/json'
         },
-        data: {"username":username,"password":password}
+        data: {'username':username,'password':password}
       };
 
     $http(req)
@@ -35,7 +35,7 @@ angular.module('seekerUiApp')
       .error( function () {
 
       })
-      .then(function(response){
+      .then(function(){
       // console.log(response.data.token)
         $route.reload();
     });
@@ -43,5 +43,5 @@ angular.module('seekerUiApp')
 
 
 
-    }
+    };
   });

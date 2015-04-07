@@ -236,6 +236,26 @@
 
   </div>
   <div class="row pad-header" >
+
+    <div class="col-xs-6">
+      <div ng-show="showCreateResponse" >
+         <div class="{{ createStatus.class }}">
+           {{ createStatus.message }}
+         </div>
+         <div class="{{ createStatus.class }}" ng-click="showResponseDetail()">
+           Click here for detail
+         </div>
+         <div ng-show="showDetail">
+           <div class="{{ createStatus.class }}" ng-repeat="(key, val) in createStatus.detail">
+               {{key}}: {{val}}
+           </div>
+
+         </div>
+
+      </div>
+    </div>
+
+
     <div class="col-xs-3 col-xs-offset-6">
 
       <input class="form-control" placeholder="Search Alert List..." ng-model="searchAlertList">

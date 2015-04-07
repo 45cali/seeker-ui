@@ -14,8 +14,8 @@ angular.module('seekerUiApp')
     // ge sop ID
     var thisId = $routeParams.sopId;
     // call sop.get()
-    var getInstance = sop.get(thisId)
-      .success( function (data, status) {
+    sop.get(thisId)
+      .success( function (data) {
            // bind data to $scope.thisSop
            $scope.thisSop = data;
            // check if current user is apart of the owner group
@@ -27,12 +27,8 @@ angular.module('seekerUiApp')
              });
 
       })
-      .error( function (data, status) {
-
-      })
-      .then( function (data) {
-
-      });
+      .error( )
+      .then( );
 
     // function to go back to /sops
     $scope.goBack = function () {

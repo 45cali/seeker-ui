@@ -20,10 +20,10 @@ angular.module('seekerUiApp')
 
     // call get method from template service
     template.get(thisId)
-      .success(function(response){
+      .success(function(){
 
       })
-      .error(function(response){
+      .error(function(){
 
       })
       .then(function(response){
@@ -35,7 +35,7 @@ angular.module('seekerUiApp')
         $scope.editThisTemplate = response.data;
 
         // assign list to $scope.templateList
-        $scope.templateList = $scope.editThisTemplate['alert_set'];
+        $scope.templateList = $scope.editThisTemplate.alert_set ;
 
         // assign description to $scope.thisTextArea
         $scope.thisTextArea = $scope.editThisTemplate.description;
@@ -58,7 +58,7 @@ angular.module('seekerUiApp')
               $scope.masterList = alerts.listify(response.data);
             //  $scope.filterMasterList = $scope.masterList;
 
-            })
+            });
       });
 
     /*
@@ -88,7 +88,7 @@ angular.module('seekerUiApp')
          }
          else {
            // validate unique entry
-           if (typeof a != 'undefined' ) {
+           if (typeof a !== 'undefined' ) {
 
              if (a.length > 0) {
 
@@ -117,7 +117,7 @@ angular.module('seekerUiApp')
     };
 
     // update template
-    $scope.updateTemplate = function (textAreaData) {
+    $scope.updateTemplate = function () {
 
       /*
       * need following params
@@ -141,7 +141,7 @@ angular.module('seekerUiApp')
       // check length of name > 0
       else if (templateName.length < 1) {
           // set name to original name
-          templateName = $scope.editThisTemplate.name
+          templateName = $scope.editThisTemplate.name;
       }
       else {
           // use the new name
@@ -159,11 +159,11 @@ angular.module('seekerUiApp')
 
       template.put(templateUrl, templateName, templateDescription, templateAlertSet, $localStorage.token)
         .success(function () {
-          $scope.updateInfo = "The update was a success";
+          $scope.updateInfo = 'The update was a success';
           $scope.updateClass = 'alert alert-success';
         })
         .error(function () {
-          $scope.updateInfo = "There was an error and this information was not updated. If this issue continues, please contact the admin for this tool.";
+          $scope.updateInfo = 'There was an error and this information was not updated. If this issue continues, please contact the admin for this tool.';
           $scope.updateClass = 'alert alert-success';
         })
         .then(function () {
@@ -178,18 +178,18 @@ angular.module('seekerUiApp')
     $scope.deleteTemplate = function () {
       var templateUrl = $scope.editThisTemplate.url;
 
-      var deleteTemplate = template.delete(templateUrl, $localStorage.token)
-        .success( function (data, status) {
-          console.log(data, status);
-          console.log('success, redirect to /templates');
+      template.delete(templateUrl, $localStorage.token)
+        .success( function () {
+          //console.log(data, status);
+          //console.log('success, redirect to /templates');
           $location.url('/templates');
         })
-        .error( function (data, status) {
-          console.error(data, status);
+        .error( function () {
+          //console.error(data, status);
         })
-        .then( function (data, status) {
+        .then( function () {
 
-        })
+        });
     };
 
 
@@ -199,14 +199,6 @@ angular.module('seekerUiApp')
 
     };
 
-    $scope.toggleList = function (key,list) {
 
-      if (list === 'template') {
-        console.log('add to masterList');
-        console.log()
-      }
-
-
-    };
 
   });

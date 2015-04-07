@@ -12,11 +12,11 @@ angular.module('seekerUiApp')
     checkJwt.validate();
 
     sop.list().
-      success(function (response) {
-        console.log('success');
+      success(function () {
+        //console.log('success');
       }).
-      error(function (response) {
-        console.log('error');
+      error(function () {
+        //console.log('error');
       }).
       then(function (response) {
         console.log('then'+response);

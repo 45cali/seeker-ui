@@ -12,14 +12,14 @@ angular.module('seekerUiApp')
     checkJwt.validate();
 
     template.list().
-      success(function (response) {
-         console.log('success');
+      success(function () {
+         //console.log('success');
        }).
-      error(function (response) {
-        console.log('error');
+      error(function () {
+        //console.log('error');
       }).
       then(function (response) {
-        console.log('then'+response);
+        //console.log('then'+response);
         $scope.templateCollection = response.data;
 
       });
@@ -28,7 +28,7 @@ angular.module('seekerUiApp')
 
     $scope.goToThisTemplate = function (id) {
       $location.path('/templates/'+id);
-    }
+    };
 
     $scope.goToCreateTemplate = function () {
       $location.path('create/templates/');

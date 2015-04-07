@@ -19,7 +19,7 @@ angular.module('seekerUiApp')
 
     this.isOwner = function (owner) {
 
-      if (typeof thisToken != 'undefined') {
+      if (typeof thisToken !== 'undefined') {
 
         if (owner === tokenInfo.username) {
           return true;
@@ -33,7 +33,7 @@ angular.module('seekerUiApp')
 
     this.isGroup = function (group) {
 
-      if (typeof thisToken != 'undefined') {
+      if (typeof thisToken !== 'undefined') {
 
         var deferred = $q.defer();
 
@@ -62,7 +62,7 @@ angular.module('seekerUiApp')
 
 
     this.isOwnerOrRedirect = function (owner) {
-      if (typeof thisToken != 'undefined') {
+      if (typeof thisToken !== 'undefined') {
 
         if (owner === tokenInfo.username) {
         }
@@ -80,12 +80,12 @@ angular.module('seekerUiApp')
     this.isGroupOrRedirect = function (group, list) {
 
       if (list.indexOf(group) >= 0) {
-        console.log('passed auth');
+        //console.log('passed auth');
       }
       else {
         $location.path('/sops');
       }
-    }
+    };
 
 
 

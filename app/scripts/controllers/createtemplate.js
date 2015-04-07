@@ -46,7 +46,7 @@ angular.module('seekerUiApp')
       }
       else {
         // validate unique entry
-        if (typeof a != 'undefined' ) {
+        if (typeof a !== 'undefined' ) {
 
           if (a.length > 0) {
 
@@ -96,7 +96,7 @@ angular.module('seekerUiApp')
       console.log('token :'+$localStorage.token);
 
 
-      var createTemplate = template.post(templateName, templateDescription, templateAlertSet, $localStorage.token)
+      template.post(templateName, templateDescription, templateAlertSet, $localStorage.token)
         .success( function (data, status) {
 /*             console.log('createTemplate call:  success');
              console.log('success response:', status,data);
@@ -109,7 +109,7 @@ angular.module('seekerUiApp')
                     'class'  : 'alert-success',
                     'status'  : status,
                     'data'   : data
-             }
+             };
 
 
         })

@@ -12,7 +12,7 @@ angular.module('seekerUiApp')
     // Service logic
     // ...
 
-    var baseUrl = 'data/'
+    var baseUrl = 'data/';
     return {
 
       get: function (file) {
@@ -21,5 +21,5 @@ angular.module('seekerUiApp')
         return $http.get(baseUrl+file);
       }
 
-    }
+    };
   });

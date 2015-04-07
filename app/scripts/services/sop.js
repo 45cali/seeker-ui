@@ -45,11 +45,29 @@ angular.module('seekerUiApp')
         });
 
       },
-      post: function () {
-        return $http({
 
+      post: function (currentUserToken, sopPattern, sopProduct, sopGroup, sopAlertSet, sopInfo, sopOncall, sopEmail) {
+        return $http({
+          method: 'POST',
+          url: baseUrl,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'JWT '+currentUserToken
+          },
+          data: {
+            pattern: sopPattern,
+            product: sopProduct,
+            created_by: 'me',
+            owner: sopGroup,
+            alert_set: sopAlertSet,
+            info: sopInfo,
+            oncall: sopOncall,
+            email: sopEmail
+          }
         });
+
       },
+
       delete: function (sopUrl, currentUserToken) {
         return $http({
 
@@ -63,7 +81,7 @@ angular.module('seekerUiApp')
       }
 
 
-    }
+    };
 
 
   });

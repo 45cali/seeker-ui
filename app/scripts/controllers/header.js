@@ -17,21 +17,21 @@ angular.module('seekerUiApp')
     if (typeof $localStorage.token === 'undefined') {
 
 
-      console.log('no token present');
+      //console.log('no token present');
 
     }
     else {
 
       $scope.$storage = $localStorage;
       var thisToken = $scope.$storage.token;
-      console.log(thisToken);
+      //console.log(thisToken);
 
       var bool = jwtHelper.isTokenExpired(thisToken);
-      console.log(bool);
+      //console.log(bool);
 
       if (bool === false) {
         var tokenInfo = jwtHelper.decodeToken(thisToken);
-        console.log(tokenInfo);
+        //console.log(tokenInfo);
 
         $scope.currentUser = tokenInfo.username;
         $('#loginLink').hide();
@@ -51,7 +51,7 @@ angular.module('seekerUiApp')
       delete $scope.$storage.token;
       checkJwt.validate();
 
-    }
+    };
 
 
 

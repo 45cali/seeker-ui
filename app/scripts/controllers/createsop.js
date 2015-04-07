@@ -14,12 +14,20 @@ angular.module('seekerUiApp')
                                          template,
                                          products,
                                          alerts,
-                                         $location) {
+                                         $location,
+                                         $localStorage,
+                                         sop,
+                                         jsonData) {
 
     // verify valid token
     checkJwt.validate();
+
     $scope.sopAlertSet = [];
+
     var previousAlertSet = [];
+
+    $scope.showCreateResponse = false;
+    $scope.showDetail = false;
 
     // Load groupList
     groupNames.get()
@@ -89,7 +97,7 @@ angular.module('seekerUiApp')
       }
       else {
         // validate unique entry
-        if (typeof a != 'undefined' ) {
+        if (typeof a !== 'undefined' ) {
 
           if (a.length > 0) {
 
@@ -108,7 +116,35 @@ angular.module('seekerUiApp')
 
     $scope.createSop = function () {
 
+      var currentUserToken = $localStorage.token;
+      var sopPattern = $scope.sopPattern;
+      var sopProduct = $scope.sopProduct;
+      var sopGroup = $scope.sopGroup;
+      var sopAlertSet = $scope.sopAlertSet;
+      var sopInfo = $scope.sopEscalationInfo;
+      var sopOncall = $scope.sopOncall;
+      var sopEmail = $scope.sopEmail;
 
+      sop.post(currentUserToken, sopPattern, sopProduct, sopGroup, sopAlertSet, sopInfo, sopOncall, sopEmail)
+        .success( function (data) {
+         // console.log(data);
+
+          $scope.createStatus = {'message' : 'Sop created successfully',
+                                 'detail' : data,
+                                 'class' : 'alert-success'};
+          $scope.showCreateResponse = true;
+
+        } )
+        .error( function (data) {
+         // console.error(data);
+
+          $scope.createStatus = {'message' : 'There was an error in creating sop',
+                                 'detail' : data,
+                                 'class' : 'alert-danger'};
+          $scope.showCreateResponse = true;
+
+
+        } );
 
     };
 
@@ -120,5 +156,25 @@ angular.module('seekerUiApp')
       //console.log($scope.sopAlertSet);
     };
 
+    $scope.updateSopProduct = function(product) {
+      $scope.sopProduct = product;
+    };
+
+    $scope.updateSopGroup = function(group) {
+      $scope.sopGroup = group;
+    };
+
+    $scope.showResponseDetail = function () {
+
+      $scope.showDetail = !$scope.showDetail;
+    };
+
+    $scope.loadHelpInfo = function () {
+
+      jsonData.get('editsopinfo.json').then(function (data) {
+        $scope.sopEditHelpInfo = data.data;
+      });
+
+    };
 
   });

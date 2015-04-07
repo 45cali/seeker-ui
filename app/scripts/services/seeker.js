@@ -8,7 +8,7 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('seeker', function ($http,$resource) {
+  .factory('seeker', function ($http) {
     // Service logic
     // ...
 

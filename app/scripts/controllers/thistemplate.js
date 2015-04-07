@@ -18,19 +18,15 @@ angular.module('seekerUiApp')
     var thisId = $routeParams.templateId;
 
     template.get(thisId)
-      .success(function(response){
-
-      })
-      .error(function(response){
-
-      })
+      .success()
+      .error()
       .then(function(response){
 
-        console.log(response.data.owner);
+       // console.log(response.data.owner);
 
         $scope.thisTemplate = response.data;
 
-        console.log('isOwner: '+checkPerm.isOwner(response.data.owner));
+        //console.log('isOwner: '+checkPerm.isOwner(response.data.owner));
 
         $scope.isOwner = checkPerm.isOwner(response.data.owner);
 

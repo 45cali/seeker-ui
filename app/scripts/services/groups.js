@@ -19,10 +19,10 @@ angular.module('seekerUiApp')
         return $http.get(baseUrl);
       },
       get: function(id) {
-        return $http.get(baseUrl+id)
+        return $http.get(baseUrl+id);
       }
 
-    }
+    };
 
 
 

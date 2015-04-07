@@ -31,7 +31,7 @@ angular.module('seekerUiApp')
                   name: templateName,
                   description: templateDescription,
                   alert_set: templateAlertSet,
-                  owner: "me"
+                  owner: 'me'
                }
 
            });
@@ -49,7 +49,7 @@ angular.module('seekerUiApp')
                 name: templateName,
                 description: templateDescription,
                 alert_set: templateAlertSet,
-                owner: "me"
+                owner: 'me'
               }
 
             });
@@ -69,7 +69,7 @@ angular.module('seekerUiApp')
 
 
 
-    }
+    };
 
 
 

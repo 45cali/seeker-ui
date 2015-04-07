@@ -8,7 +8,7 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('users', function ($http, $q) {
+  .factory('users', function ($http) {
     // Service logic
 
     var baseUrl = 'http://localhost:8000/api/users/';
@@ -23,7 +23,7 @@ angular.module('seekerUiApp')
 
 
 
-    }
+    };
 
 
   });

@@ -19,6 +19,6 @@ angular.module('seekerUiApp')
         return $http.get(baseUrl);
       }
 
-     }
+     };
 
   });

@@ -26,7 +26,7 @@ angular.module('seekerUiApp')
 
     var thisId = $routeParams.sopId;
     var previousAlertSet = [];
-    var getInstance = sop.get(thisId)
+    sop.get(thisId)
       .success( function (data) {
         //console.log(data);
 
@@ -76,16 +76,12 @@ angular.module('seekerUiApp')
         // load list of templates
         template.list()
           .then( function (data) {
-            console.log(data.data);
+            //console.log(data.data);
             $scope.templateList = data.data;
           });
       });
 
-    // remove item from alert List
-    $scope.removeFromAlertList = function (key,item) {
 
-
-    };
 
     // add item to alert list
     $scope.addToAlertList = function (a) {
@@ -100,7 +96,7 @@ angular.module('seekerUiApp')
       }
       else {
         // validate unique entry
-        if (typeof a != 'undefined' ) {
+        if (typeof a !== 'undefined' ) {
 
           if (a.length > 0) {
 
@@ -169,8 +165,8 @@ angular.module('seekerUiApp')
         .success( function () {
           $location.url('/sops/');
         })
-        .error( function (data) {
-          console.error(data)
+        .error( function () {
+          //console.error(data)
         })
         .then();
     };
@@ -182,22 +178,22 @@ angular.module('seekerUiApp')
       var currentUserToken = $localStorage.token;
       var sopPattern = $scope.sopPattern;
       var sopProduct = $scope.sopProduct;
-      var sopGroup = $scope.sopGroup
+      var sopGroup = $scope.sopGroup;
       var sopAlertSet = $scope.sopAlertSet;
       var sopInfo = $scope.sopEscalationInfo;
       var sopOncall = $scope.sopOncall;
       var sopEmail = $scope.sopEmail;
 
       sop.put(sopUrl,  currentUserToken, sopPattern, sopProduct, sopGroup, sopAlertSet, sopInfo, sopOncall, sopEmail)
-        .success( function (data) {
+        .success( function () {
 
-          console.log('success: '+data);
+          //console.log('success: '+data);
         })
 
 
-        .error( function (data) {
+        .error( function () {
 
-          console.error('error: '+data)
+          //console.error('error: '+data)
         })
         .then( function () {
 
