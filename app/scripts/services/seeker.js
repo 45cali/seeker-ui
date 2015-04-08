@@ -8,11 +8,12 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('seeker', function ($http) {
+  .factory('seeker', function ($http, backendHost) {
     // Service logic
     // ...
+    var path = backendHost.backendPath();
 
-    var baseUrl = 'http://localhost:8000/api/seek/?';
+    var baseUrl = path.baseUrl+'/api/seek/?';
     // Public API here
     return {
 

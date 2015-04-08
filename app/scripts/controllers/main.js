@@ -8,9 +8,9 @@
  * Controller of the seekerUiApp
  */
 angular.module('seekerUiApp')
-  .controller('MainCtrl',function ($scope,seeker) {
+  .controller('MainCtrl',function ($scope,seeker, backendHost) {
 
-
+    console.log(backendHost.backendPath());
 
     $scope.getRequestSeeker = function (hostnameId,alertId) {
         //console.log(hostnameId,alertId);

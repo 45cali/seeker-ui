@@ -8,10 +8,11 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('groups', function ($http) {
+  .factory('groups', function ($http, backendHost) {
     // Service logic
+    var path = backendHost.backendPath();
 
-    var baseUrl = 'http://localhost:8000/api/groups/';
+    var baseUrl = path.baseUrl+'/api/groups/';
 
     return {
       // get a list of users

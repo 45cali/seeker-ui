@@ -8,8 +8,11 @@
  * Factory in the seekerUiApp.
  */
 angular.module('seekerUiApp')
-  .factory('template', function ($http) {
-    var baseUrl = 'http://localhost:8000/api/templates/';
+  .factory('template', function ($http, backendHost) {
+
+    var path = backendHost.backendPath();
+
+    var baseUrl = path.baseUrl+'/api/templates/';
 
     return {
       list: function() {
