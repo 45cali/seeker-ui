@@ -87,7 +87,7 @@ body {
 
 
 .navbar-default {
-  background-color: #9DD4A7;
+  background-color: #ffffff;
   font-family: sans-serif;
   font-size: large;
 }
@@ -100,7 +100,7 @@ body {
 
 .btn-go {
   color: #777;
-  background-color: rgba(55, 212, 91, 0.62);
+  background-color: rgba(255, 255, 255, 0.62);
   border-color: #9CA3A8;
   border-width: 2px;
 }
@@ -174,7 +174,7 @@ body {
 
 .hover-green:hover {
   text-decoration: none;
-  color: #006600;
+  color: rgba(55, 212, 91, 0.62);
 }
 
 .clean-anchor {
