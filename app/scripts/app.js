@@ -23,7 +23,8 @@ var app = angular
 
 
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $interpolateProvider) {
+    $interpolateProvider.startSymbol('[[').endSymbol(']]');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

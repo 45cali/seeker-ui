@@ -262,6 +262,9 @@ h4 {
 .gray-font {
   color: #777;
 }
+.green-font {
+  color: #006600;
+}
 
 .bold-text:hover {
   font-weight: bold;
@@ -314,4 +317,8 @@ h4 {
 
 .border-px-2 {
   border-width: 2px;
+}
+
+.indent {
+  padding-left: 15px;
 }

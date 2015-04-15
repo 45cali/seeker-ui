@@ -29,10 +29,10 @@
     </thead>
     <tbody>
     <tr ng-repeat="row in displayedCollection" ng-click="goToThisSop(row.id)" class="bold-text">
-      <td class="col-xs-3">{{ row.owner }}</td>
-      <td class="col-xs-4">{{ row.pattern }}</td>
-      <td class="col-xs-3">{{ row.product }}</td>
-      <td class="col-xs-3">{{ row.created_by }}</td>
+      <td class="col-xs-3">[[ row.owner ]]</td>
+      <td class="col-xs-4">[[ row.pattern ]]</td>
+      <td class="col-xs-3">[[ row.product ]]</td>
+      <td class="col-xs-3">[[ row.created_by ]]</td>
       <td class="col-xs-2"><button class="btn btn-go" ng-click="goToThisSop(row.id)">view</button></td>
     </tr>
     </tbody>

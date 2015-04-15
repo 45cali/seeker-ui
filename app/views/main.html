@@ -38,10 +38,10 @@
                 <div class="col-xs-4">
 
                   <div class="row">
-                    Product: {{ s.product | uppercase}}
+                    Product: [[ s.product | uppercase]]
                   </div>
                   <div class="row">
-                    Contact: <a href=" {{ s.oncall }} " class="clean-anchor hover-green" >{{ s.owner | uppercase}} </a>
+                    Contact: <a href=" [[ s.oncall ]] " class="clean-anchor hover-green" >[[ s.owner | uppercase]] </a>
                   </div>
                   <div class="row">
                     Runbook
@@ -59,7 +59,7 @@
                    </div>
                    <div class="row">
                      <div class="info-scroll-box">
-                       {{ s.info }}
+                       [[ s.info ]]
                      </div>
 
                    </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="col-xs-8">
               <div class="row">
-                {{ s.id }}
+                [[ s.id ]]
               </div>
 
             </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-xs-8">
                   <div class="row">
-                    {{ s.pattern }}
+                    [[ s.pattern ]]
                   </div>
 
                 </div>
@@ -118,7 +118,7 @@
 
                     <div ng-repeat="alert in s.alert_set">
                       <div>
-                        {{ alert }}
+                        [[ alert ]]
                       </div>
                     </div>
                   </div>

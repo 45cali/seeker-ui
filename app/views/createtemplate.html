@@ -64,23 +64,23 @@
 
       </div>
 
-      <div class="row pad-header word-wrap {{ createResponse.class }}" ng-show="showCreate" >
+      <div class="row pad-header word-wrap [[ createResponse.class ]]" ng-show="showCreate" >
         <div >
          <div class="col-xs-12  ">
-           Info: {{ createResponse.message }}
+           Info: [[ createResponse.message ]]
          </div>
         <div class="col-xs-12" ng-click="toggleShow(moreResponseDetail)">
           click for more info
         </div>
           <div class="col-xs-12  " ng-show="moreResponseDetail">
-            Status: {{ createResponse.status }}
+            Status: [[ createResponse.status ]]
 
           </div>
 
 
 
           <div ng-repeat="(key,val) in createResponse.data"  class="col-xs-12  " ng-show="moreResponseDetail">
-            {{ key }}: {{ val }}
+            [[ key ]]: [[ val ]]
 
           </div>
 
@@ -109,7 +109,7 @@
 
       <div class="alert-container border-green">
 
-        <div ng-repeat="(key,item) in templateList | filter:searchTemplate track by key " class="alert" ng-dblclick="removeFromTemplateList(key,item)">{{ item }}</div>
+        <div ng-repeat="(key,item) in templateList | filter:searchTemplate track by key " class="alert" ng-dblclick="removeFromTemplateList(key,item)">[[ item ]]</div>
 
       </div>
     </div>
@@ -117,7 +117,7 @@
     <div class="col-xs-3">
 
       <div class="alert-container border-green">
-        <div ng-repeat="(key,item) in masterList  | filter:searchMaster  track by key " class="alert" ng-dblclick="addAlertToTemplateList(item)">{{ item }}</div>
+        <div ng-repeat="(key,item) in masterList  | filter:searchMaster  track by key " class="alert" ng-dblclick="addAlertToTemplateList(item)">[[ item ]]</div>
 
 
       </div>

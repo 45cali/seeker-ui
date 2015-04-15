@@ -21,7 +21,7 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu " role="menu">
-            <li  class="background-gray-hover gray-font pad-left" ng-repeat="template in templateList" ng-click="selectTemplate(template)">{{ template.name }}</li>
+            <li  class="background-gray-hover gray-font pad-left" ng-repeat="template in templateList" ng-click="selectTemplate(template)">[[ template.name ]]</li>
 
           </ul>
 
@@ -114,7 +114,7 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li  class="background-gray-hover pad-left" ng-repeat="p in productList" ng-click="updateSopProduct(p.product)">{{ p.product }}</li>
+                <li  class="background-gray-hover pad-left" ng-repeat="p in productList" ng-click="updateSopProduct(p.product)">[[ p.product ]]</li>
 
               </ul>
             </div>
@@ -145,7 +145,7 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li  class="background-gray-hover pad-left" ng-repeat="g in groupList" ng-click="updateSopGroup(g)">{{ g }}</li>
+                <li  class="background-gray-hover pad-left" ng-repeat="g in groupList" ng-click="updateSopGroup(g)">[[ g ]]</li>
 
               </ul>
             </div>
@@ -216,7 +216,7 @@
 
       <div class="alert-container">
 
-        <div ng-repeat="(key,item) in sopAlertSet | filter:searchAlertList track by key " class="alert" ng-dblclick="removeFromAlertList(key,item)">{{ item }}</div>
+        <div ng-repeat="(key,item) in sopAlertSet | filter:searchAlertList track by key " class="alert" ng-dblclick="removeFromAlertList(key,item)">[[ item ]]</div>
 
       </div>
 
@@ -226,7 +226,7 @@
 
       <div class="alert-container">
 
-        <div ng-repeat="(key,item) in masterList | filter:searchMasterList track by key " class="alert" ng-dblclick="addToAlertList(item)">{{ item }}</div>
+        <div ng-repeat="(key,item) in masterList | filter:searchMasterList track by key " class="alert" ng-dblclick="addToAlertList(item)">[[ item ]]</div>
 
       </div>
 
@@ -239,15 +239,15 @@
 
     <div class="col-xs-6">
       <div ng-show="showCreateResponse" >
-         <div class="{{ createStatus.class }}">
-           {{ createStatus.message }}
+         <div class="[[ createStatus.class ]]">
+           [[ createStatus.message ]]
          </div>
-         <div class="{{ createStatus.class }}" ng-click="showResponseDetail()">
+         <div class="[[ createStatus.class ]]" ng-click="showResponseDetail()">
            Click here for detail
          </div>
          <div ng-show="showDetail">
-           <div class="{{ createStatus.class }}" ng-repeat="(key, val) in createStatus.detail">
-               {{key}}: {{val}}
+           <div class="[[ createStatus.class ]]" ng-repeat="(key, val) in createStatus.detail">
+               [[ke ]]: [[va ]]
            </div>
 
          </div>
@@ -299,10 +299,10 @@
           <div class="gray-font" ng-repeat="item in sopEditHelpInfo">
             <p>
             <div class="text-info">
-              {{ item.name }}
+              [[ item.name ]]
             </div>
             <div >
-              {{ item.info }}
+              [[ item.info ]]
             </div>
             </p>
           </div>

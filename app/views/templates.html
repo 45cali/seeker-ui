@@ -28,9 +28,9 @@
      </thead>
      <tbody>
       <tr ng-repeat="row in displayedCollection" ng-click="goToThisTemplate(row.id)" class="bold-text">
-        <td class="col-xs-3">{{ row.name }}</td>
-        <td class="col-xs-4">{{ row.description | limitTo: 30 }}{{row.description.length >= 30 ? '...' : ''}}</td>
-        <td class="col-xs-3">{{ row.owner }}</td>
+        <td class="col-xs-3">[[ row.name ]]</td>
+        <td class="col-xs-4">[[ row.description | limitTo: 30 ]][[row.description.length >= 30 ? '...' : '']]</td>
+        <td class="col-xs-3">[[ row.owner ]]</td>
         <td class="col-xs-2"><button class="btn btn-go" ng-click="goToThisTemplate(row.id)">view</button></td>
       </tr>
      </tbody>

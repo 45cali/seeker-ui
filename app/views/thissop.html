@@ -21,7 +21,7 @@
 
               </div>
             <div class="col-xs-5 col-sm-7" >
-                   {{ thisSop.pattern }}
+                   [[ thisSop.pattern ]]
 
             </div>
 
@@ -36,7 +36,7 @@
 
             </div>
             <div class="col-xs-5 col-sm-7" >
-              {{ thisSop.product }}
+              [[ thisSop.product ]]
 
             </div>
 
@@ -49,7 +49,7 @@
 
             </div>
             <div class="col-xs-5 col-sm-7" >
-              {{ thisSop.owner }}
+              [[ thisSop.owner ]]
 
             </div>
 
@@ -62,7 +62,7 @@
 
             </div>
             <div class="col-xs-5 col-sm-7" >
-                <a href="{{ thisSop.oncall }}">link</a>
+                <a href="[[ thisSop.oncall ]]">link</a>
 
             </div>
 
@@ -75,7 +75,7 @@
 
             </div>
             <div class="col-xs-5 col-sm-7" >
-              {{ thisSop.email }}
+              [[ thisSop.email ]]
 
             </div>
 
@@ -95,7 +95,7 @@
           <!-- Nested Row-->
 
           <div class="col-xs-5 col-sm-12 word-wrap info-box" >
-            {{ thisSop.info }}
+            [[ thisSop.info ]]
 
           </div>
 
@@ -113,7 +113,7 @@
 
            <div class="alert-container">
 
-             <div ng-repeat="(key,item) in thisSop.alert_set track by key " class="alert" >{{ item }}</div>
+             <div ng-repeat="(key,item) in thisSop.alert_set track by key " class="alert" >[[ item ]]</div>
 
            </div>
 

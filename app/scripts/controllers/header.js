@@ -34,6 +34,8 @@ angular.module('seekerUiApp')
         //console.log(tokenInfo);
 
         $scope.currentUser = tokenInfo.username;
+
+
         $('#loginLink').hide();
         $('#loggedIn').show();
         $('#headerSop').show();

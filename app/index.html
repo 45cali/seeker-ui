@@ -42,8 +42,8 @@
             <ul class="nav navbar-nav ">
               <li ><a href="#/">Home</a></li>
               <li><a ng-href="#/api">API</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li id="headerSop" ><a ng-href="#/sops">SOPs</a></li>
+          <!--    <li><a ng-href="#/about">About</a></li>
+          -->   <li id="headerSop" ><a ng-href="#/sops">SOPs</a></li>
               <li id="headerTemplate" ><a ng-href="#/templates">Templates</a></li>
 
 
@@ -53,7 +53,7 @@
               <ul class="nav navbar-nav ">
 
                 <li class="loginLogout"  id="loginLink" data-toggle="modal" data-target=".bs-login-modal-sm" >Login</li>
-                <li class="loginLogout"  id="loggedIn" ng-click="logout()" >{{ currentUser }} / Logout</li>
+                <li class="loginLogout"  id="loggedIn" ng-click="logout()" >[[ currentUser ]] / Logout</li>
 
               </ul>
             </div>
